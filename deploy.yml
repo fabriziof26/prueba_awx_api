@@ -1,0 +1,20 @@
+- name: Deploy API en Windows
+  hosts: all
+  tasks:
+
+    - name: Crear carpeta
+      win_file:
+        path: C:\mi_api
+        state: directory
+
+    - name: Copiar código
+      win_copy:
+        src: .
+        dest: C:\mi_api\
+
+    - name: Instalar dependencias
+      win_shell: pip install -r C:\mi_api\requirements.txt
+
+    - name: Ejecutar API
+      win_shell: |
+        Start-Process -NoNewWindow -FilePath "cmd.exe" -ArgumentList "/c uvicorn main:app --host 0.0.0.0 --port 8000"
