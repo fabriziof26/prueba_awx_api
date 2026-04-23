@@ -15,7 +15,6 @@
     - name: Instalar dependencias
       win_shell: pip install -r C:\mi_api\requirements.txt
 
-    - name: Ejecutar API
+    - name: Ejecutar API en background
       win_shell: |
-        cd C:\mi_api
-        uvicorn main:app --host 0.0.0.0 --port 8000
+        Start-Process powershell -ArgumentList "cd C:\mi_api; uvicorn main:app --host 0.0.0.0 --port 8000"
