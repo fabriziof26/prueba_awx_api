@@ -15,6 +15,7 @@
     - name: Instalar dependencias
       win_shell: pip install -r C:\mi_api\requirements.txt
 
-    - name: Ejecutar API en background
+    - name: Ejecutar API y guardar log
       win_shell: |
-        Start-Process cmd.exe -ArgumentList "/c cd /d C:\mi_api && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
+        cd /d C:\mi_api
+        python -m uvicorn main:app --host 0.0.0.0 --port 8000 > C:\mi_api\log.txt 2>&1
