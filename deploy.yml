@@ -17,4 +17,4 @@
 
     - name: Ejecutar API en background
       win_shell: |
-        Start-Process powershell -ArgumentList "cd C:\mi_api; uvicorn main:app --host 0.0.0.0 --port 8000"
+        Start-Process cmd.exe -ArgumentList "/c cd /d C:\mi_api && python -m uvicorn main:app --host 0.0.0.0 --port 8000"
