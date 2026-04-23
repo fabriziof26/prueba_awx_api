@@ -17,5 +17,5 @@
 
     - name: Ejecutar API y guardar log
       win_shell: |
-        cd /d C:\mi_api
+        cd C:\mi_api
         python -m uvicorn main:app --host 0.0.0.0 --port 8000 > C:\mi_api\log.txt 2>&1
